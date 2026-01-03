@@ -245,7 +245,7 @@
         // Generowanie losowych działań matematycznych w ramce
         function generateMathExpressions() {
             const operations = ['+', '-', '×', '÷'];
-            const borderFrame = document.getElementById('border-frame');
+            const container = document.getElementById('game-container');
             
             for (let i = 0; i < 40; i++) {
                 const num1 = Math.floor(Math.random() * 20) + 1;
@@ -261,21 +261,21 @@
                 const position = Math.random();
                 
                 if (position < 0.25) {
-                    // Góra
-                    top = Math.random() * 15 + 2;
+                    // Góra - w obrębie górnej ramki (0-80px to 0-8vh)
+                    top = Math.random() * 6 + 1;
                     left = Math.random() * 80 + 10;
                 } else if (position < 0.5) {
-                    // Dół
-                    top = Math.random() * 15 + 83;
+                    // Dół - w obrębie dolnej ramki
+                    top = Math.random() * 6 + 92;
                     left = Math.random() * 80 + 10;
                 } else if (position < 0.75) {
-                    // Lewo
+                    // Lewo - w obrębie lewej ramki
                     top = Math.random() * 80 + 10;
-                    left = Math.random() * 12 + 2;
+                    left = Math.random() * 6 + 1;
                 } else {
-                    // Prawo
+                    // Prawo - w obrębie prawej ramki
                     top = Math.random() * 80 + 10;
-                    left = Math.random() * 12 + 86;
+                    left = Math.random() * 6 + 92;
                 }
                 
                 const rotation = Math.random() * 40 - 20;
@@ -284,7 +284,7 @@
                 expression.style.left = left + '%';
                 expression.style.transform = 'rotate(' + rotation + 'deg)';
                 
-                borderFrame.appendChild(expression);
+                container.appendChild(expression);
             }
         }
 
