@@ -45,9 +45,7 @@
         }
 
         .menu-btn {
-            position: absolute;
-            top: 32px;
-            left: 32px;
+            position: relative;
             background-color: #2563eb;
             padding: 16px;
             border-radius: 8px;
@@ -55,6 +53,7 @@
             cursor: pointer;
             border: none;
             transition: background-color 0.3s;
+            margin-right: 20px;
         }
 
         .menu-btn:hover {
@@ -144,15 +143,22 @@
             height: 100%;
         }
 
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 64px;
+            margin-top: -80px;
+        }
+
         .game-title {
             font-size: 72px;
             font-weight: bold;
             color: #2563eb;
-            margin-bottom: 64px;
-            margin-top: -80px;
             letter-spacing: 2px;
             text-align: center;
             padding: 0 20px;
+            margin: 0;
         }
 
         .start-btn {
@@ -209,15 +215,6 @@
         <!-- Niebieska ramka -->
         <div class="border-frame" id="border-frame"></div>
 
-        <!-- Przycisk menu -->
-        <button class="menu-btn" onclick="toggleMenu()">
-            <div class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-
         <!-- Menu boczne -->
         <div class="side-menu" id="side-menu">
             <h2>Menu</h2>
@@ -231,7 +228,16 @@
 
         <!-- Główna zawartość -->
         <div class="main-content" id="main-content">
-            <h1 class="game-title">MATEMATYCZNE ZABAWY</h1>
+            <div class="title-container">
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <div class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <h1 class="game-title">MATEMATYCZNE ZABAWY</h1>
+            </div>
             <button class="start-btn" onclick="startGame()">Rozpocznij</button>
         </div>
 
